@@ -1,34 +1,68 @@
 <template>
   <q-layout view="hHh LpR fFf">
     <q-header elevated id="titlebar">
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
+      <q-toolbar class="glossy row justify-between"
+      :class="$q.screen.lt.md ? 'q-px-xs' : 'q-px-md'">
+        <div class="col-shrink">
+          <q-btn
+            size="lg"
+            flat dense round
+            icon="menu"
+            aria-label="Menu"
+            @click="toggleLeftDrawer"
+          />
+        </div>
+
+        <q-img width="180px" class="col-shrink"
+          src="~/assets/brand/LOGO_EKIPAR_Texto_inv3.svg"
         />
+        <div class="col-2 col-md-1">
+          <q-page-sticky position="top-right"
+          :offset="$q.screen.lt.md ? [4, -45] : [18, -42]">
+            <q-img class="col-shrink"
+              src="~/assets/brand/LOGO_EKIPAR_Cubo3shadow.svg"
+              :width="$q.screen.lt.md ? '56px' : '64px'"
+            />
+          </q-page-sticky>
+        </div>
 
-        <q-toolbar-title class="text-center"> Ekipar 2023 </q-toolbar-title>
-
-        <div>v0.01</div>
       </q-toolbar>
     </q-header>
 
     <!-- //*  BARRA DE NAVEGAÇÃO LATERAL  *// -->
-    <q-drawer v-model="leftDrawerOpen"
-    show-if-above
+    <q-drawer show-if-above v-model="leftDrawerOpen"
     class="shadow-13 bg-grey-9">
       <q-list>
         <q-item-label header> Essential Links </q-item-label>
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <q-item class="text-white text-bold q-px-md">
+          <q-item-section>
+            COMPONENTES
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-ripple dense
+        class="text-white text-bold q-px-xl"
+        v-for="item in componentes" :key="item.id">
+          <q-item-section>
+            {{ item.navlink }}
+          </q-item-section>
+        </q-item>
+
+        <q-item class="text-white text-bold q-px-md">
+          <q-item-section>
+            EQUIPAMENTOS
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-ripple dense
+        class="text-white text-bold q-px-xl"
+        v-for="item in equipamentos" :key="item.id">
+          <q-item-section>
+            {{ item.navlink }}
+          </q-item-section>
+        </q-item>
+
       </q-list>
     </q-drawer>
 
@@ -39,75 +73,14 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
+<script setup>
+import { ref } from 'vue'
+import componentes from 'assets/lib/lista_comp'
+import equipamentos from 'assets/lib/lista_equip'
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
+const leftDrawerOpen = ref(false)
+function toggleLeftDrawer () { leftDrawerOpen.value = !leftDrawerOpen.value }
 
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
-
-export default defineComponent({
-  name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
-
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
 </script>
 
 <style lang="scss">

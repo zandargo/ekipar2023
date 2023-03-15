@@ -1,6 +1,6 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="hHh LpR fFf">
+    <q-header elevated id="titlebar">
       <q-toolbar>
         <q-btn
           flat
@@ -11,13 +11,16 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Site da Ekipar 2023 </q-toolbar-title>
+        <q-toolbar-title class="text-center"> Ekipar 2023 </q-toolbar-title>
 
         <div>v0.01</div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <!-- //*  BARRA DE NAVEGAÇÃO LATERAL  *// -->
+    <q-drawer v-model="leftDrawerOpen"
+    show-if-above
+    class="shadow-13 bg-grey-9">
       <q-list>
         <q-item-label header> Essential Links </q-item-label>
 
@@ -29,7 +32,8 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <!-- //*  CONTAINER DA PÁGINA PRINCIPAL  *// -->
+    <q-page-container class="">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -105,3 +109,12 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss">
+.navbar {
+  background-color: $info;
+}
+.mainpage {
+  background-color: $gray4;
+}
+</style>

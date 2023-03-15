@@ -12,7 +12,7 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
-$primary   : #1976D2;
+$primary   : hsl(119, 93%, 30%);
 $secondary : #26A69A;
 $accent    : #9C27B0;
 
@@ -23,3 +23,37 @@ $positive  : #21BA45;
 $negative  : #C10015;
 $info      : #31CCEC;
 $warning   : #F2C037;
+
+
+$gray0: hsl(0, 0%, 20%);
+$gray1: hsl(0, 0%, 33%);
+$gray4: hsl(0, 0%, 75%);
+$gray5: hsl(0, 0%, 95%);
+
+$green1: rgb(140, 198, 63);
+$green1b: rgb(138, 186, 74);
+
+$green2: rgb(108, 157, 48);
+$green3: rgb(69, 110, 28);
+$green1t90: rgba(140, 198, 63, 0.9);
+$green1bt90: rgba(138, 186, 74, 0.9);
+$green2t90: rgba(108, 157, 48, 0.9);
+$green3t90: rgba(69, 110, 28, 0.9);
+$shadow: 0.2rem 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.35);
+$shadow1: 0.3rem 0.35rem 0.35rem 0 rgba(0, 0, 0, 0.35);
+$shadow-wpp: 5px 5px 15px rgba(0, 0, 0, 0.5);
+$shadow-in: inset $shadow;
+$glow: 0 0 0 0.25rem rgba(255, 255, 255, 0.85);
+
+$wpp1: #25d366;
+$wpp2: #128c7e;
+$wpp3: #075e54;
+$wpp4: rgb(74, 201, 89);
+$wpp5: hsl(127, 54%, 40%);
+$verdecitrico: #045f18;
+
+$background1: rgb(0,255,11);
+$background2: linear-gradient(180deg, rgba(0,255,11,1) 0%, rgba(9,121,44,1) 100%);
+
+$greenwpp: $wpp5;
+$wpp-size0: 64px;

@@ -1,5 +1,6 @@
 <template>
   <q-layout view="hHh LpR fFf">
+    <!-- //*  BARRA DE TÍTULO  *// -->
     <q-header elevated id="titlebar">
       <q-toolbar class="glossy row justify-between"
       :class="$q.screen.lt.md ? 'q-px-xs' : 'q-px-md'">
@@ -33,7 +34,7 @@
     <q-drawer show-if-above v-model="leftDrawerOpen"
     class="shadow-13 bg-grey-9">
       <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+        <q-item-label header> Links Essenciais </q-item-label>
 
         <q-item class="text-white text-bold q-px-md">
           <q-item-section>
@@ -69,6 +70,14 @@
     <!-- //*  CONTAINER DA PÁGINA PRINCIPAL  *// -->
     <q-page-container class="">
       <router-view />
+      <q-page-sticky position="bottom-right" :offset="[18, 18]">
+        <q-btn round class="bg-wpp q-pa-sm shadow-5">
+          <q-img
+            src="~/assets/brand/whats.svg"
+            :width="$q.screen.lt.md ? '24px' : '36px'"
+          />
+        </q-btn>
+      </q-page-sticky>
     </q-page-container>
   </q-layout>
 </template>
@@ -90,4 +99,8 @@ function toggleLeftDrawer () { leftDrawerOpen.value = !leftDrawerOpen.value }
 .mainpage {
   background-color: $gray4;
 }
+.bg-wpp {
+  background-color: $wpp5;
+}
+
 </style>

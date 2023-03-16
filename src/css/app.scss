@@ -28,3 +28,9 @@
 	background: lighten($color: $green1, $amount: 1);
 	box-shadow: inset 0 0 5px black;
 }
+
+// @media only screen and (max-width: 800px) {
+//   .q-drawer {
+//     width: 100vw !important;
+//   }
+// }

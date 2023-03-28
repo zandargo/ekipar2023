@@ -12,6 +12,10 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
+
+//* -------------------------------------------------------- *//
+//*                          COLORS                          *//
+//* -------------------------------------------------------- *//
 $primary   : hsl(119, 93%, 30%);
 $secondary : #26A69A;
 $accent    : #9C27B0;
@@ -55,5 +59,9 @@ $verdecitrico: #045f18;
 $background1: rgb(0,255,11);
 $background2: linear-gradient(180deg, rgba(0,255,11,1) 0%, rgba(9,121,44,1) 100%);
 
-$greenwpp: $wpp5;
-$wpp-size0: 64px;
+//* -------------------------------------------------------- *//
+//*                     QUASAR VARIABLES                     *//
+//* -------------------------------------------------------- *//
+$body-font-size         : 12pt !default;
+$body-line-height       : 1.5 !default;
+$generic-border-radius  : 12px !default

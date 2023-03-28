@@ -1,6 +1,6 @@
 # Ekipar (ekipar2023)
 
-Ekipar - Equipamentos Industriais
+Ekipar - Engenharia de Processos Químicos
 
 ## Install the dependencies
 ```bash

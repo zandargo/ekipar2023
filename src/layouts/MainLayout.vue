@@ -106,7 +106,7 @@ import { ref } from 'vue'
 import componentes from 'assets/lib/lista_comp'
 import equipamentos from 'assets/lib/lista_equip'
 
-const leftDrawerOpen = ref(false)
+const leftDrawerOpen = ref(true)
 function toggleLeftDrawer () { leftDrawerOpen.value = !leftDrawerOpen.value }
 
 </script>

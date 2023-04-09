@@ -37,6 +37,7 @@
 
     <!-- //*  BARRA DE NAVEGAÇÃO LATERAL  *// -->
     <q-drawer v-model="leftDrawerOpen"
+    show-if-above
     class="q-py-md"
     :class="$q.screen.lt.md ? 'q-pl-sm' : 'q-pl-xl'"
     >

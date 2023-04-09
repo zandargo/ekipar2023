@@ -13,7 +13,7 @@
       <q-tab name="detl" label="Detalhamento" />
     </q-tabs>
 
-    <q-separator />
+    <q-separator inset/>
 
     <div class="row q-pt-md">
       <div class="col-12 col-md-6">

@@ -2,7 +2,8 @@
   <q-layout view="hHh LpR fFf">
     <!-- //*  BARRA DE TÍTULO  *// -->
     <q-header id="titlebar" class="q-py-md"
-    :class="$q.screen.lt.md ? 'q-px-sm' : 'q-px-xl'">
+    :class="$q.screen.lt.md ? 'q-px-sm' : 'q-px-xl'"
+    style="height: $hiHeader;">
       <q-toolbar class="bg-dark-0 leaf-2 shadow-5 row"
       :class="$q.screen.lt.md ? 'q-px-xs' : 'q-px-md'">
         <div class="col-shrink">
@@ -41,10 +42,20 @@
     >
     <!-- behavior="desktop" -->
     <!-- :overlay="true" -->
-      <q-list class="leaf-2r shadow-13 bg-dark-0 q-py-lg full-height">
+      <q-list
+      class="shadow-13 bg-dark-0 q-py-lg full-height"
+      :class="$q.screen.lt.md ? 'leaf-2' : 'leaf-2r'">
         <q-scroll-area style="height: 100%;">
 
           <q-item-label header></q-item-label>
+
+          <q-item clickable v-ripple dense
+          class="text-white text-bold"
+          :to="{ name: 'index'}">
+            <q-item-section>
+              INÍCIO
+            </q-item-section>
+          </q-item>
 
           <q-item class="text-white text-bold q-px-md">
             <q-item-section>
@@ -54,7 +65,9 @@
 
           <q-item clickable v-ripple dense
           class="text-white text-bold q-px-xl"
-          v-for="item in componentes" :key="item.id">
+          v-for="item in componentes" :key="item.ID"
+          :to="{ name: 'Components', params: item }"
+          @click="objItem = item">
             <q-item-section>
               {{ item.navlink }}
             </q-item-section>
@@ -79,16 +92,14 @@
     </q-drawer>
 
     <!-- //*  CONTAINER DA PÁGINA PRINCIPAL  *// -->
-    <q-page-container class="full-height">
+    <q-page-container class="q-pa-none">
       <q-page-sticky position="bottom-right" :offset="[0, 0]">
         <q-img class="bg-logo"
           src="~/assets/brand/LOGO_EKIPAR_CuboBG.svg"
-          width="90vh" style="opacity: 0.1"
+          width="90vh" style="opacity: 0.2"
         />
       </q-page-sticky>
-      <q-scroll-area style="height: 80vh;">
-        <router-view />
-      </q-scroll-area>
+      <router-view :obj="objItem"/>
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
         <q-btn round class="bg-wpp q-pa-sm shadow-5 oscilate-2">
           <q-img class=""
@@ -107,6 +118,7 @@ import componentes from 'assets/lib/lista_comp'
 import equipamentos from 'assets/lib/lista_equip'
 
 const leftDrawerOpen = ref(true)
+const objItem = ref({})
 function toggleLeftDrawer () { leftDrawerOpen.value = !leftDrawerOpen.value }
 
 </script>

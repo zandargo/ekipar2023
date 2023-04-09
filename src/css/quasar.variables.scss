@@ -34,7 +34,7 @@ $gray1: hsl(0, 0%, 33%);
 $gray4: hsl(0, 0%, 75%);
 $gray5: hsl(0, 0%, 95%);
 
-$green1: rgb(140, 198, 63);
+$green1: hsl(86, 54%, 51%);
 $green1b: rgb(138, 186, 74);
 
 $green2: rgb(108, 157, 48);
@@ -42,7 +42,7 @@ $green3: rgb(69, 110, 28);
 $green1t90: rgba(140, 198, 63, 0.9);
 $green1bt90: rgba(138, 186, 74, 0.9);
 $green2t90: rgba(108, 157, 48, 0.9);
-$green3t90: rgba(69, 110, 28, 0.9);
+$green3t90: #456e1ce6;
 $shadow: 0.2rem 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.35);
 $shadow1: 0.3rem 0.35rem 0.35rem 0 rgba(0, 0, 0, 0.35);
 $shadow-wpp: 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -64,4 +64,12 @@ $background2: linear-gradient(180deg, rgba(0,255,11,1) 0%, rgba(9,121,44,1) 100%
 //* -------------------------------------------------------- *//
 $body-font-size         : 12pt !default;
 $body-line-height       : 1.5 !default;
-$generic-border-radius  : 12px !default
+$generic-border-radius  : 12px !default;
+
+//* -------------------------------------------------------- *//
+//*                       APP VARIABELS                      *//
+//* -------------------------------------------------------- *//
+
+$hiHeader: 82px;
+$hiMain: calc(100vh - 82px - 32px - 36px - 2px);
+// $hiMain: 100vh;

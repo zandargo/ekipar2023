@@ -17,7 +17,7 @@ const componentes = [
       'POP – Procedimento operacional Padrão.'
     ],
     croqui: 'componentes/aquecedor1/crq_Aquecedor1.png',
-    img: ['aquecedor1/img_Aquecedor1-001.png'],
+    img: ['componentes/aquecedor1/img_Aquecedor1-001.png'],
     vr: ''
   },
   {

@@ -15,12 +15,12 @@
 
     <q-separator inset/>
 
-    <div class="row q-pt-md">
+    <div class="mainArea row q-pt-md ">
       <div class="col-12 col-md-6">
         <q-scroll-area class="full-height q-pr-lg"
         :thumb-style="mainThumbStyle"
         :bar-style="mainBarStyle">
-          <q-tab-panels v-model="tab" animated class="text-justify"  style="height: 800px;">
+          <q-tab-panels v-model="tab" animated class="text-justify bg-transparent"  style="height: 800px;">
             <q-tab-panel name="desc">
               {{ props.obj.descricao }}
             </q-tab-panel>
@@ -37,19 +37,36 @@
               </ul>
             </q-tab-panel>
           </q-tab-panels>
-          <div style="height: 800px;"></div>
+
+          <div style="height: 800px;"/>
+
         </q-scroll-area>
       </div>
-      <div class="col-12 col-md-6 q-pa-lg q-pr-xl">
-        <q-card class="">
-          <img src="https://cdn.quasar.dev/img/mountains.jpg">
-          <q-card-section>
-            <div class="text-h6">Our Changing Planet</div>
-            <div class="text-subtitle2">by John Doe</div>
-          </q-card-section>
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-          </q-card-section>
+      <div class="col-12 col-md-6 q-pt-lg q-pr-xl">
+        <q-card class="full-height">
+          <q-carousel
+            v-model="slide"
+            transition-prev="slide"
+            transition-next="slide"
+            control-color="grey-6"
+            class="text-grey-6 full-height"
+            swipeable animated
+            navigation padding
+            arrows infinite
+            :autoplay="autoplay"
+          >
+            <q-carousel-slide v-for="(item, index) in imageList"
+            :key="index" :name="index"
+            class="column no-wrap flex flex-center text-black items-center"
+            >
+              <q-img
+                :src="item"
+                spinner-color="primary"
+                spinner-size="82px"
+                fit
+              />
+            </q-carousel-slide>
+          </q-carousel>
         </q-card>
       </div>
     </div>
@@ -58,6 +75,7 @@
 </template>
 
 <script setup>
+// import { onBeforeMount, onMounted, ref } from 'vue'
 import { onMounted, ref } from 'vue'
 import { mainThumbStyle, mainBarStyle } from 'src/assets/variables'
 
@@ -65,8 +83,22 @@ const props = defineProps({
   obj: Object
 })
 const tab = ref('desc')
+const slide = ref(1)
+const autoplay = ref(false)
+const imageList = []
+
+// onBeforeMount(() => {
+
+// })
 
 onMounted(() => {
+  // console.log(props.obj)
+  const imgSrc = '../src/assets/img/'
+  // const tmpObj = props.obj
+  for (let i = 0; i < props.obj.img.length; i++) {
+    imageList.push(imgSrc + props.obj.img[i])
+  }
+  console.log('imageList: ' + imageList)
 })
 
 </script>
